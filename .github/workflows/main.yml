@@ -1,7 +1,7 @@
 name: FastApi Docker build and push
 on:
   push:
-    branches: [ feature/actions ]
+    branches: [ main ]
 env:
   IMAGE_NAME: microservice_one
   REGISTRY: ghcr.io
