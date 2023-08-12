@@ -33,11 +33,8 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ env.USERNAME }}
-          password: ${{ env.PASSWORD }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy Docker container
         run: |
           docker run -d -p 80:80 ${{ env.IMAGE_NAME }}:${{github.sha}}
