@@ -43,4 +43,4 @@ jobs:
           password: ${{ env.PASSWORD }}
       - name: Deploy Docker container
         run: |
-          docker run -d -p 80:80 ${{ env.IMAGE_NAME }}:${{github.sha}}
+          docker run -d -p 80:80 ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{github.sha}}
